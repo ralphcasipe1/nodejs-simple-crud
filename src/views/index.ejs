@@ -1,0 +1,36 @@
+<% include partials/_header.ejs %>
+    <div>
+        <% if (contacts.length > 0) { %>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Phone No.</th>
+                    <th>Address</th>
+                    <th>E-mail</th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <% contacts.forEach((contact, index) => { %>
+                        <tr>
+                            <td><%= contact.name %></td>
+                            <td><%= contact.company %></td>
+                            <td><%= contact.phone %></td>
+                            <td><%= contact.address %></td>
+                            <td><%= contact.email %></td>
+                            <td>
+                                <a href="/delete/<%= contact.contact_id %>">Delete</a>
+                                <a href="/edit/<%= contact.contact_id %>">Edit</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else {%>
+            <h3>No contacts found</h3>
+            <p>Go <a href="/add">here</a> to add contacts</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
